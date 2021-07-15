@@ -7,12 +7,9 @@ public class CarResult {
     private final double rentalCost;
     private final FuelPolicy fuelPolicy;
 
-    public enum FuelPolicy {
+	public enum FuelPolicy {
         FULLFULL,
-        FULLEMPTY
-    }
-
-    ;
+        FULLEMPTY};
 
     public CarResult(String description, String supplierName, String sipp, double cost, FuelPolicy fuelPolicy) {
         this.description = description;
@@ -21,6 +18,7 @@ public class CarResult {
         this.rentalCost = cost;
         this.fuelPolicy = fuelPolicy;
     }
+
 
     public String getDescription() {
         return this.description;
@@ -71,4 +69,3 @@ public class CarResult {
         return hash;
     }
 }
-
