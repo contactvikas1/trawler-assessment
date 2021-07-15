@@ -22,6 +22,11 @@ public class CarResult {
         this.fuelPolicy = fuelPolicy;
     }
 
+    public String getSortedFields() {
+        String sortedText = getDescription() + getSupplierName() + getSippCode() + getFuelPolicy();
+        return sortedText;
+    }
+
     public String getDescription() {
         return this.description;
     }
@@ -71,4 +76,3 @@ public class CarResult {
         return hash;
     }
 }
-

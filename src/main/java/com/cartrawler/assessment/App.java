@@ -4,17 +4,18 @@ import com.cartrawler.assessment.car.CarResult;
 import com.cartrawler.assessment.util.CarUtil;
 import com.cartrawler.assessment.view.Display;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class App {
-    public static final Set<CarResult> CARS;
+    public static final List<CarResult> CARS;
 
 
     static {
-        CARS = new HashSet<>();
+        CARS = new ArrayList();
         CARS.add(new CarResult("Volkswagen Polo", "NIZA", "EDMR", 12.81d, CarResult.FuelPolicy.FULLEMPTY));
         CARS.add(new CarResult("Ford C-Max Diesel", "NIZA", "CMMD", 22.04d, CarResult.FuelPolicy.FULLEMPTY));
         CARS.add(new CarResult("Renault Scenic Diesel", "NIZA", "JGAD", 93.67d, CarResult.FuelPolicy.FULLEMPTY));
@@ -328,10 +329,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        List<CarResult> carList=CARS.stream().collect(Collectors.toList());
+    //    List<CarResult> carList = CARS.stream().collect(Collectors.toList());
 // TODO
         // overright hashcode and equals method in Car Result
-        CarUtil.sortCarOnMultiField(carList);
+        CarUtil.sortCarOnMultiField(CARS);
         Display display = new Display();
         display.render(CARS);
     }
