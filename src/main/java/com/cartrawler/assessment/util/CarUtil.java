@@ -17,6 +17,7 @@ public class CarUtil {
 
         Map<String, List<CarResult>> map = unsortedList.stream().
                 collect(groupingBy(CarResult::getSortedFields, toList()));
+
         List<CarResult> distinctResultList = new ArrayList<>();
         CarResult cr = null;
         for (String s : map.keySet()) {
