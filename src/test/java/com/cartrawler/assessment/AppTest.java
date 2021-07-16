@@ -7,14 +7,26 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+public class AppTest {
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void shouldAnswerWithTrue() {
+        assertTrue(true);
+    }
+
+
+    @Test
+    public void removeDuplicateTestFromList() {
+
+    }
+
+    @Test
+    public void sortListByCorporste() {
+
+    }
+
+    @Test
+    public void renderEndToEndFinalList() {
+
     }
 }

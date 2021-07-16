@@ -329,11 +329,9 @@ public class App {
 
     public static void main(String[] args) {
 
-    //    List<CarResult> carList = CARS.stream().collect(Collectors.toList());
-// TODO
         // overright hashcode and equals method in Car Result
-        CarUtil.sortCarOnMultiField(CARS);
+        List<CarResult> carResultList = CarUtil.sortCarOnMultiField(CARS);
         Display display = new Display();
-        display.render(CARS);
+        display.render(carResultList);
     }
 }

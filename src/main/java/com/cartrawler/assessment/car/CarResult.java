@@ -10,6 +10,10 @@ public class CarResult {
         FULLFULL,
         FULLEMPTY
     }
+    public enum SUPPLIER_CATEGORY {
+        CORPORATE,
+        NONCORPORATE
+    }
 
     public CarResult(String description, String supplierName, String sipp, double cost, FuelPolicy fuelPolicy) {
         this.description = description;
@@ -19,7 +23,7 @@ public class CarResult {
         this.fuelPolicy = fuelPolicy;
     }
 
-    public String getSortedFields() {
+    public String getDuplicatesFields() {
         String sortedText = getDescription() + getSupplierName() + getSippCode() + getFuelPolicy();
         return sortedText;
     }
