@@ -6,13 +6,10 @@ public class CarResult {
     private final String sippCode;
     private final double rentalCost;
     private final FuelPolicy fuelPolicy;
-
     public enum FuelPolicy {
         FULLFULL,
         FULLEMPTY
     }
-
-    ;
 
     public CarResult(String description, String supplierName, String sipp, double cost, FuelPolicy fuelPolicy) {
         this.description = description;
