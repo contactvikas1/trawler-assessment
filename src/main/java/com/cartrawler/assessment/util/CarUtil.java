@@ -2,7 +2,6 @@ package com.cartrawler.assessment.util;
 
 import com.cartrawler.assessment.car.CarResult;
 import com.cartrawler.assessment.car.ComparatorBasedOnSIPP;
-import com.cartrawler.assessment.car.CorporateCarResultComparator;
 
 import java.util.*;
 import java.util.stream.Collectors;

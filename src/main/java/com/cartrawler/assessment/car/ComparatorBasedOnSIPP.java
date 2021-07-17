@@ -20,15 +20,6 @@ public class ComparatorBasedOnSIPP implements Comparator<CarResult> {
         if (sipp1.startsWith("C")) {
             return 1;
         }
-//        if (sipp2.startsWith("M")) {
-//            return -2;
-//        }
-//        if (sipp2.startsWith("E")) {
-//            return -1;
-//        }
-//        if (sipp2.startsWith("C")) {
-//            return 1;
-//        }
         return car1.getSippCode().compareTo(car2.getSippCode());
     }
 }
