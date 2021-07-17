@@ -36,6 +36,12 @@ public class CarUtil {
         return distinctResultList;
     }
 
+    /**
+     * Sort the List by Corporate 0supplier at first
+     *
+     * @param distinctResultList
+     * @return
+     */
     public static Map<String, List<CarResult>> sortListByCorporate(List<CarResult> distinctResultList) {
         List<CarResult> sorByCarporateResultList = new ArrayList<>();
         List<CarResult> sorByUncorporateResultList = new ArrayList<>();
@@ -52,22 +58,28 @@ public class CarUtil {
         return sortByCorporateAndUncorporateMap;
     }
 
+    /**
+     * The sortCarOnMultiple field method this is the main method calling other methods
+     *
+     * @param unsortedList
+     * @return
+     */
     public static List<CarResult> sortCarOnMultiField(List<CarResult> unsortedList) {
         List<CarResult> sortedList = new ArrayList<>();
 
         // calling method to remove duplicate
         List<CarResult> distinctResultList = removeDuplicate(unsortedList);
 
-        Map<String, List<CarResult>> sortByCorporateAndUncorporateMap=sortListByCorporate(distinctResultList);
+        Map<String, List<CarResult>> sortByCorporateAndUncorporateMap = sortListByCorporate(distinctResultList);
 
         List<CarResult> corporateFinalList = sortByCorporateAndUncorporateMap.get(CarResult.SUPPLIER_CATEGORY.CORPORATE.toString())
                 .stream().sorted(new ComparatorBasedOnSIPP()
-                .reversed()).sorted(Comparator.comparingDouble(CarResult::getRentalCost))
+                        .reversed()).sorted(Comparator.comparingDouble(CarResult::getRentalCost))
                 .collect(Collectors.toList());
 
         List<CarResult> nonCorporateFinalList = sortByCorporateAndUncorporateMap.get(CarResult.SUPPLIER_CATEGORY.NONCORPORATE.toString())
                 .stream().sorted(new ComparatorBasedOnSIPP()
-                .reversed()).sorted(Comparator.comparingDouble(CarResult::getRentalCost))
+                        .reversed()).sorted(Comparator.comparingDouble(CarResult::getRentalCost))
                 .collect(Collectors.toList());
 
         corporateFinalList.addAll(nonCorporateFinalList);

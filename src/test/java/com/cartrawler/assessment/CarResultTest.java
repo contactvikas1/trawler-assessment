@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Unit test for simple App.
+ * Unit test for Car Result Test App.
  */
 public class CarResultTest {
 
@@ -60,24 +60,26 @@ public class CarResultTest {
     }
 
     /**
-     *  Sort so that corporate cars appears first
-     *  Corporate car are those whose supplier ares amoung : AVIS, BUDGET, ENTERPRISE, FIREFLY, HERTZ, SIXT, THRIFTY
+     * Sort so that corporate cars appears first
+     * Corporate car are those whose supplier ares amoung : AVIS, BUDGET, ENTERPRISE, FIREFLY, HERTZ, SIXT, THRIFTY
      */
     @Test
     public void sortListByCorporsteAndNonCorporate() {
         List<CarResult> distinctResultList = CarUtil.removeDuplicate(CARS);
 
         Map<String, List<CarResult>> corporateCarFirst = CarUtil.sortListByCorporate(distinctResultList);
-        List<CarResult> corporsteCarList=corporateCarFirst.get(CarResult.SUPPLIER_CATEGORY.CORPORATE.toString());
-        List<CarResult> nonCorporsteCarList=corporateCarFirst.get(CarResult.SUPPLIER_CATEGORY.NONCORPORATE.toString());
+        List<CarResult> corporsteCarList = corporateCarFirst.get(CarResult.SUPPLIER_CATEGORY.CORPORATE.toString());
+        List<CarResult> nonCorporsteCarList = corporateCarFirst.get(CarResult.SUPPLIER_CATEGORY.NONCORPORATE.toString());
         // corporate car is total 3
-        Assert.assertTrue(corporsteCarList.size()==3);
+        Assert.assertTrue(corporsteCarList.size() == 3);
         // corporate car is total 3
-        Assert.assertTrue(nonCorporsteCarList.size()==10);
+        Assert.assertTrue(nonCorporsteCarList.size() == 10);
     }
 
     @Test
     public void renderEndToEndFinalList() {
-        // TODO
+        List<CarResult> finalResultList = CarUtil.sortCarOnMultiField(CARS);
+        Assert.assertTrue(finalResultList.size() == 13);
+
     }
 }
